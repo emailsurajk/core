@@ -238,6 +238,7 @@ class AuthManager:
     async def async_create_user(
         self,
         name: str,
+        is_sub_admin: bool,
         *,
         group_ids: list[str] | None = None,
         local_only: bool | None = None,
@@ -246,6 +247,7 @@ class AuthManager:
         kwargs: dict[str, Any] = {
             "name": name,
             "is_active": True,
+            "is_sub_admin": is_sub_admin,
             "group_ids": group_ids or [],
             "local_only": local_only,
         }

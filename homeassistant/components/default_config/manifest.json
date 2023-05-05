@@ -14,6 +14,7 @@
     "frontend",
     "hardware",
     "history",
+    "manager_dashboard",
     "homeassistant_alerts",
     "input_boolean",
     "input_button",

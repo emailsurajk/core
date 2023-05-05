@@ -26,3 +26,15 @@ of a component, check the `Home Assistant help section <https://home-assistant.i
    :target: https://demo.home-assistant.io
 .. |screenshot-integrations| image:: https://raw.githubusercontent.com/home-assistant/core/dev/docs/screenshot-integrations.png
    :target: https://home-assistant.io/integrations/
+
+
+to load config dir as  config
+hass -c config
+
+hass -c config --skip-pip-packages home-assistant-frontend
+pip3 install -e /Users/surajkhanra/Applications/powermanagement/frontend/
+
+cd frontend
+./script/develop
+
+source venv/bin/activate

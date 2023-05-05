@@ -87,6 +87,7 @@ class AuthStore:
         self,
         name: str | None,
         is_owner: bool | None = None,
+        is_sub_admin: bool | None = None,
         is_active: bool | None = None,
         system_generated: bool | None = None,
         credentials: models.Credentials | None = None,
@@ -117,6 +118,7 @@ class AuthStore:
         for attr_name, value in (
             ("is_owner", is_owner),
             ("is_active", is_active),
+            ("is_sub_admin", is_sub_admin),
             ("local_only", local_only),
             ("system_generated", system_generated),
         ):

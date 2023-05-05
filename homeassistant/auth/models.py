@@ -37,6 +37,7 @@ class User:
     perm_lookup: perm_mdl.PermissionLookup = attr.ib(eq=False, order=False)
     id: str = attr.ib(factory=lambda: uuid.uuid4().hex)
     is_owner: bool = attr.ib(default=False)
+    is_sub_admin: bool = attr.ib(default=False)
     is_active: bool = attr.ib(default=False)
     system_generated: bool = attr.ib(default=False)
     local_only: bool = attr.ib(default=False)

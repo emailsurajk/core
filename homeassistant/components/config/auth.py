@@ -77,6 +77,7 @@ async def websocket_delete(
         vol.Required("name"): str,
         vol.Optional("group_ids"): [str],
         vol.Optional("local_only"): bool,
+        vol.Optional("is_sub_admin"): bool,
     }
 )
 @websocket_api.async_response
@@ -87,7 +88,7 @@ async def websocket_create(
 ) -> None:
     """Create a user."""
     user = await hass.auth.async_create_user(
-        msg["name"], group_ids=msg.get("group_ids"), local_only=msg.get("local_only")
+        msg["name"] ,True if  msg.__contains__("is_sub_admin") else False, group_ids=msg.get("group_ids"), local_only=msg.get("local_only")
     )
 
     connection.send_message(
@@ -168,6 +169,7 @@ def _user_info(user):
         "username": ha_username,
         "name": user.name,
         "is_owner": user.is_owner,
+        "is_sub_admin": user.is_sub_admin,
         "is_active": user.is_active,
         "local_only": user.local_only,
         "system_generated": user.system_generated,
